@@ -1,0 +1,143 @@
+Minikube
+
+Commands:
+
+docker --version
+
+
+sudo apt update && sudo apt upgrade -y
+
+
+sudo apt install -y curl wget apt-transport-https
+
+
+ curl -LO "https://dl.k8s.io/release/$(curl -Ls https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+
+
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+
+
+  rm kubectl
+
+
+  kubectl version --client
+
+
+  curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+
+
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+
+  rm minikube-linux-amd64
+
+
+  minikube version
+
+
+  sudo usermod -aG docker $USER && newgrp docker
+
+
+   docker ps
+
+
+   minikube start --driver=docker
+
+
+   minikube status
+
+
+    kubectl version --client
+
+
+AWS cli  - download & install
+Visual Studio - Terraform plugins & AWS login plugins
+
+
+To install VS code through package:
+
+If you haven’t added the Microsoft repository yet, first run:
+
+sudo apt update
+sudo apt install wget gpg -y
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /usr/share/keyrings/packages.microsoft.gpg > /dev/null
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" | sudo tee /etc/apt/sources.list.d/vscode.list
+sudo apt update
+sudo apt install code -y
+
+
+You can check if the Microsoft repository is added in Ubuntu using the following command:
+
+cat /etc/apt/sources.list.d/vscode.list
+
+If the repository is present, it will display something like:
+
+deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main
+
+
+
+Install plugins extension:
+
+Open VS Code.
+Click on the Extensions icon (Ctrl + Shift + X).
+In the search bar, type:
+"AWS Toolkit" for AWS authentication and login.
+"Terraform" for Terraform support.
+Click Install on the respective extensions.
+
+Or to Install : 
+
+AWS Toolkit: code --install-extension AmazonWebServices.aws-toolkit-vscode
+Terraform: code --install-extension hashicorp.terraform
+AWS CLI install ANd Download:
+
+Step 1: Download the AWS CLI Installer
+Run the following command to download the latest AWS CLI package:
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+
+Step 2: Install Unzip (if not installed)
+
+sudo apt install unzip -y
+
+Step 3: Unzip the AWS CLI Package
+unzip awscliv2.zip
+
+Step 4: Install AWS CLI
+bash
+CopyEdit
+sudo ./aws/install
+
+Step 5: Verify the Installation
+Check if AWS CLI is installed correctly.
+aws --version
+
+You should see output like:
+aws-cli/2.x.x Python/3.x.x Linux/x86_64
+
+Now, you can configure AWS CLI using:
+aws configure
+To install Terraform on Ubuntu, follow these steps:
+1. Update System Packages
+sudo apt update && sudo apt install -y gnupg software-properties-common
+
+2. Add HashiCorp GPG Key
+wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+
+3. Add HashiCorp Repository
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+
+4. Update Package List
+sudo apt update
+
+5. Install Terraform
+sudo apt install -y terraform
+
+6. Verify Installation
+terraform version
+
+
+
+
+
+
+
